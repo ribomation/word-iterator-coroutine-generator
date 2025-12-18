@@ -8,3 +8,4 @@ add_executable(generate-names generate-names.cxx)
 
 add_executable(list-words list-words.cxx)
 add_executable(fibonacci fibonacci.cxx)
+add_executable(word-iterator word-iterator.cxx)
