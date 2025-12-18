@@ -1,16 +1,13 @@
-#include <iostream>
 #include <print>
 #include <string>
 #include <array>
 #include <generator>
 #include <random>
 #include <ranges>
-using std::cout;
-using std::string;
 using namespace std::string_literals;
 namespace v = std::ranges::views;
 
-auto generate_name() -> std::generator<string> {
+auto generate_name() -> std::generator<std::string> {
     static auto const names = std::array{
         "Anna"s, "Berit"s, "Carin"s, "Doris"s, "Eva"s, "Frida"s, "Gun"s,
         "Adam"s, "Betil"s, "Carl"s, "Dan"s, "Erik"s, "Fred"s, "Gunnar"s,

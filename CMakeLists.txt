@@ -7,3 +7,4 @@ add_compile_options(-Wall -Wextra -O3 -march=native)
 add_executable(generate-names generate-names.cxx)
 
 add_executable(list-words list-words.cxx)
+add_executable(fibonacci fibonacci.cxx)
