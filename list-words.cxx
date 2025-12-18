@@ -4,14 +4,34 @@
 #include <array>
 using namespace std::string_literals;
 
-auto list_words() -> std::generator<std::string> {
+auto ListWord() -> std::generator<std::string> {
     auto const words = std::array{
-        "C++"s, "is"s, "a"s, "cool"s, "programming"s, "language"s
+        "C++"s, "is"s, "cool"s
     };
     for (auto& w : words) co_yield w;
 }
 
+void use_iterator() {
+    std::print("iter: ");
+    auto coro  = ListWord();
+    auto first = coro.begin();
+    auto last  = coro.end();
+    while (first != last) {
+        auto&& word = *first;
+        std::print("{} ", word);
+        ++first;
+    }
+    std::println();
+}
+
+void use_for() {
+    std::print("for : ");
+    for (auto&& w : ListWord()) std::print("{} ", w);
+    std::println();
+}
+
 int main() {
-    for (auto&& w : list_words()) std::print("{} ", w);
+    use_iterator();
+    use_for();
 }
 
