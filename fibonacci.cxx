@@ -1,6 +1,7 @@
 #include <print>
 #include <generator>
 #include <utility>
+namespace v = std::ranges::views;
 
 auto fibonacci() -> std::generator<unsigned long> {
     auto f0 = 1UL, f1 = 1UL;
@@ -10,9 +11,8 @@ auto fibonacci() -> std::generator<unsigned long> {
     }
 }
 
-int main() {
-    namespace v = std::ranges::views;
-    for (auto k : fibonacci() | v::take(25)) {
-        std::print("{} ", k);
-    }
+int main(int argc, char* argv[]) {
+    auto const N = argc == 1 ? 10U : std::stoi(argv[1]);
+    for (auto k: fibonacci() | v::take(N)) std::print("{} ", k);
+    std::println();
 }

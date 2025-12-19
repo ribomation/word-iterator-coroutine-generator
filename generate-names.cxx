@@ -23,7 +23,6 @@ auto generate_name() -> std::generator<std::string> {
 }
 
 int main() {
-    for (auto&& name : generate_name() | v::take(10)) {
-        std::print("{} ", name);
-    }
+    for (auto&& name : generate_name() | v::take(10)) std::print("{} ", name);
+    std::println();
 }
